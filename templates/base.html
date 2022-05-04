@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %} - Latent Diffusion</title>
+    <style>
+        .image {
+            text-align: center;
+            padding: 10px;
+            margin: 5px;
+            background-color: #f3f3f3
+        }
+        nav a {
+            color: #d64161;
+            margin-left: 50px;
+            text-decoration: none;
+        }
+        nav {
+        font-size: 3em;
+        overflow: hidden;
+        background-color: #333;
+        position: fixed; /* Set the navbar to fixed position */
+        top: 0; /* Position the navbar at the top of the page */
+        width: 100%; /* Full width */
+        }
+
+        /* Links inside the navbar */
+        nav a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        }
+        .content {
+            margin-top: 90px; /* Add a top margin to avoid content overlay */
+        }
+
+        /* Change background on mouse-over */
+        nav a:hover {
+        background: #ddd;
+        color: black;
+        }
+        .alert {
+            padding: 20px;
+            margin: 5px;
+            color: #970020;
+            background-color: #ffd5de;
+        }
+        img {
+            width: 90%;
+            height: 750px;
+            object-fit: contain;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">Latent Diffusion</a>
+        <a href="{{ url_for('index') }}">Images</a>
+        <a href="{{ url_for('create') }}">Create</a>
+    </nav>
+    <hr>
+    <div class="content">
+        {% for message in get_flashed_messages() %}
+            <div class="alert">{{ message }}</div>
+        {% endfor %}
+        {% block content %} {% endblock %}
+    </div>
+</body>
+</html>

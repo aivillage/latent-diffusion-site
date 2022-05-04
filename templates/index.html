@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for image in images %}
+        <div class='image'>
+            <h3>{{ image['prompt'] }}</h3>
+            <img src="{{ url_for('static', filename=image['file_name']) }}" alt="{{ image['prompt'] }}">
+            <p>ddim_steps : {{ image['ddim_steps'] }}, ddim_eta: {{ image['ddim_eta'] }}, n_iter: {{ image['n_iter'] }}, n_samples: {{ image['n_samples'] }}, scale: {{ image['scale'] }}</p>
+        </div>
+    {% endfor %}
+    {{ row_str }}
+{% endblock %}

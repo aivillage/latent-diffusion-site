@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Add a New Message {% endblock %}</h1>
+    <form method="post">
+        <label for="prompt">Prompt</label>
+        <br>
+        <input type="text" name="prompt"
+               placeholder="Generator prompt"
+               value="{{ request.form['prompt'] }}"></input>
+        <br>
+
+        <label for="ddim_steps">ddim_steps</label>
+        <br>
+        <input name="ddim_steps", type="number", value="200",  min="1" max="400">{{ request.form['ddim_steps'] }}</textarea>
+        <br>
+        <label for="plms">plms</label>
+        <br>
+        <input name="plms", type="checkbox">{{ request.form['plms'] }}</textarea>
+        <br>
+        <label for="ddim_eta">ddim_eta</label>
+        <br>
+        <input name="ddim_eta", type="number", value="0.0",  min="0.0" max="0.5">{{ request.form['ddim_eta'] }}</textarea>
+        <br>
+        <label for="n_iter">n_iter</label>
+        <br>
+        <input name="n_iter", type="number", value="1",  min="1" max="20">{{ request.form['n_iter'] }}</textarea>
+        <br>
+        <label for="n_samples">n_samples</label>
+        <br>
+        <input name="n_samples", type="number", value="1",  min="1" max="20">{{ request.form['n_samples'] }}</textarea>
+        <br>
+        <label for="height">height</label>
+        <br>
+        <input name="height", type="number", value="256",  min="50" max="1024">{{ request.form['height'] }}</textarea>
+        <br>
+        <label for="width">width</label>
+        <br>
+        <input name="width", type="number", value="256",  min="50" max="1024">{{ request.form['width'] }}</textarea>
+        <br>
+        <label for="scale">scale</label>
+        <br>
+        <input name="scale", type="number", value="5.0",  min="0.0" max="10.0">{{ request.form['scale'] }}</textarea>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}
