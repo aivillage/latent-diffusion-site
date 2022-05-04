@@ -6,8 +6,8 @@ services:
     ports:
       - "8000:5000"
     volumes:
-      - .models:/app/models
-      - .images:/app/static
+      - ./models:/app/models
+      - ./images:/app/static
     deploy:
       resources:
         reservations:

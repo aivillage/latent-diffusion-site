@@ -21,6 +21,9 @@ app.debug = True
 app.config['SECRET_KEY'] = "aa57fa721a88635bfc71e1e6a59f9f5ff6117dfb8edc47f9"
 images = []
 
+if not os.path.exists("static/files/"):
+    os.mkdir("static/files/")
+
 class LdmGenerator():
     def __init__(self, images_path: str, model_path: str, cfg_path: str) -> None:
         print(f"Loading config from {cfg_path}")
